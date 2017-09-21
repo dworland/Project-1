@@ -1,18 +1,19 @@
 $( document ).ready(function() {
 
+
 var slideIndex = 0;
 carousel();
 
 function carousel() {
     var i;
-    var x = $(“.carousel-img”);
+    var x = $(".carousel-img");
     console.log(x);
     for (i = 0; i < x.length; i++) {
-      x[i].style.display = “none”;
+      x[i].style.display = "none";
     }
     slideIndex++;
     if (slideIndex > x.length) {slideIndex = 1}
-    x[slideIndex-1].style.display = “block”;
+    x[slideIndex-1].style.display = "block";
     setTimeout(carousel, 4000); 
 };
 
@@ -29,11 +30,6 @@ var config = {
 
 firebase.initializeApp(config);
 
-// Carousel controls in on the page
-
-$('.carousel.carousel-slider').carousel({fullWidth: true});
-
-$('select').material_select();
 
 // Create foundational variables (job selection, location)
 
@@ -68,11 +64,12 @@ $("#searchBtn").on("click", function() {
 	.done(function(response) {
 		var results = response.data;
 		var salary = "$" + response.response.payLow + " - " + "$" + response.response.payHigh;
-		
-		$('.td1', "#" + rowId).text(salary);
-
+	
 		// grab row with id === location
 		// append into that row the data
+
+		$('.td1', "#" + rowId).text(salary);
+
 	});
 
 	$.ajax({
@@ -83,10 +80,11 @@ $("#searchBtn").on("click", function() {
 		var results = response.data;
 		var opps = response.response.cities[0].numJobs;
 
-		$('.td2', "#" + rowId).text(opps);
-
 		// grab row with id === location
 		// append into that row the data
+
+		$('.td2', "#" + rowId).text(opps);
+		
 	});
 		
 });
