@@ -5,6 +5,8 @@
 
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
@@ -25,7 +27,7 @@
 
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 
-			    <li><a href="" target="_blank">Favorites</a></li>
+			    <li><a href="favorites.html" target="_blank">Favorites</a></li>
 			    <li><a href="">Logout</a></li>
 
 			</ul>
@@ -42,7 +44,7 @@
 
 		<div class="get-started">
 
-			<a class="waves-effect waves-light btn">Get Started</a>
+			<a class="waves-effect waves-light btn" id="scroll">Get Started</a> <!-- Consider inserting icon into button -->
 
 		</div>
 
@@ -62,18 +64,17 @@
 			  <select class="browser-default" id="jobSelection">
 			    <option value="" disabled selected>Select</option>
 			    <option value="Full Stack Developer">Full Stack Developer</option>
-			    <option value="Frontend Web Developer">Frontend Web Developer</option>
-			    <option value="Backend Web Developer">Backend Web Developer</option>
+			    <option value="Front End Web Developer">Front End Web Developer</option>
+			    <option value="Back End Web Developer">Back End Web Developer</option>
 			    <option value="Product Manager">Product Manager</option>
 			    <option value="Technical Project Manager">Technical Project Manager</option>
-			    <option value="QA and Test Engineer">QA and Test Engineer</option>
+			    <option value="QA Engineer">QA Engineer</option>
 			    <option value="Software Developer">Software Developer</option>
 			    <option value="Application Development Manager">Application Development Manager</option>
 			    <option value="Computer Programmer">Computer Programmer</option>
 			    <option value="Web Designer">Web Designer</option>
-			    <option value="Email Developer">Email Developer</option>
 			    <option value="Java Developer">Java Developer</option>
-			    <option value="Technical SEO Specialist">Technical SEO Specialist</option>
+			    <option value="SEO Specialist">SEO Specialist</option>
 			    <option value="Web Producer">Web Producer</option>
 			    <option value="Technical Business Analyst">Technical Business Analyst</option>
 			  </select>
@@ -98,6 +99,8 @@
 
 		</div>
 
+<!-- Sizing borders need to be put in class to ensure there is no overlap -->
+
 	    <div class="row secondrow">
 
 	    <div class="main-results col m12 s12">Results</div>
@@ -118,10 +121,10 @@
 
 			        <thead class="categories">
 			          	<tr>
-			              <th id="tSource1">Job Title</th>
+			              <th>Job Title</th>
 			              <th>Location</th>
 			              <th>Salary Range</th>
-			               <th>Opportunities</th>
+			              <th>Opportunities</th>
 			              <th>Favorite</th>
 			          	</tr>
 			        </thead>

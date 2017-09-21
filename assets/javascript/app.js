@@ -1,13 +1,12 @@
 $( document ).ready(function() {
 
-
 var slideIndex = 0;
 carousel();
 
 function carousel() {
     var i;
     var x = $(".carousel-img");
-    console.log(x);
+    // console.log(x);
     for (i = 0; i < x.length; i++) {
       x[i].style.display = "none";
     }
@@ -30,6 +29,14 @@ var config = {
 
 firebase.initializeApp(config);
 
+var database = firebase.database();
+
+$("#scroll").click(function(event){
+    $('html, body').animate({scrollTop: '+=450px'}, 800);
+});
+
+var salary;
+var opps;
 
 // Create foundational variables (job selection, location)
 
@@ -41,21 +48,13 @@ $("#searchBtn").on("click", function() {
 
 	var userIP = "";
 	var userAgent = "";
-
-	// Job stats link // var queryURL = "http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=198273&t.k=cYTMMG3JTuQ&action=jobs-stats&q=sales&userip=2605:6000:ec89:b100:7930:247f:dc12:4d39&useragent=Chrome/61.0.3163.91";
 	
 	var queryURL1 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-prog&countryId=1&jobTitle=" + jobSelection; 
 	var queryURL2 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + location + "&jt=" + jobSelection + "&returnCities=true"; 
 
-	// 2605:6000:ec89:b100:7930:247f:dc12:4d39
-	// user agent // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.91 Safari/537.36
-	// userip=2605:6000:ec89:b100:7930:247f:dc12:4d39&useragent=Chrome/51.0.2704.103
-	// t.p=198273&t.k=cYTMMG3JTuQ
-
-	// append a row with #id === location
-
 	var rowId = location + Date.now();
-	var row = $("#table").append('<tr id=' + rowId + '><td>' + jobSelection + '</td><td>' + location + '</td><td class="td1">' + "Loading..." + '</td><td class="td2">' + "Loading...." + '</td></tr>');
+	var btnId = 'btn' + rowId;
+	var row = $("#table").append('<tr id=' + rowId + '><td>' + jobSelection + '</td><td>' + location + '</td><td class="td1">' + "Loading..." + '</td><td class="td2">' + "Loading...." + '</td><td>' + '<a class="btn-floating btn-large waves-effect waves-light red" id="' + btnId + '"><i class="material-icons">add</i></a></td></tr>');
 
 	$.ajax({
       url: queryURL1,
@@ -64,12 +63,7 @@ $("#searchBtn").on("click", function() {
 	.done(function(response) {
 		var results = response.data;
 		var salary = "$" + response.response.payLow + " - " + "$" + response.response.payHigh;
-	
-		// grab row with id === location
-		// append into that row the data
-
 		$('.td1', "#" + rowId).text(salary);
-
 	});
 
 	$.ajax({
@@ -78,27 +72,36 @@ $("#searchBtn").on("click", function() {
     })
 	.done(function(response) {
 		var results = response.data;
+		var jobs = response.response.attributionURL;
 		var opps = response.response.cities[0].numJobs;
-
-		// grab row with id === location
-		// append into that row the data
-
-		$('.td2', "#" + rowId).text(opps);
-		
+		$('.td2', "#" + rowId).html('<a target="_blank" href=' + jobs + '>' + opps + '</a>');
 	});
-		
+
+	// Will need to append to firebase // Favorites table will need to reflect firebase results snapshot
+	$('#btn' + rowId).on("click", function() {
+		var salary = $('.td1', "#" + rowId).text();
+		var opps = $('.td2', "#" + rowId).text();
+
+		database.ref().push({
+	        job: jobSelection,
+	        location: location,
+	        salary: salary,
+	        opportunities: opps,
+      	});
+
+	});
+});	
+
+database.ref().on("child_added", function(snapshot) {
+	var sv = snapshot.val();
+	var entry = '<tr><td>' + sv.job + '</td><td>' + sv.location + '</td><td>' + sv.salary + '</td><td>' + sv.opportunities + '</td><td>' + '<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></td></tr';
+	$("#test").html("tryinnnnnng");
 });
 
-// Create function that takes in job selection and location inputs and runs them
-
-// Create Ajax requests for Glassdoor, Indeed, Google Maps, etc
-
-// Create variables that set themselves to JSON data from API pulls
-
-// Display relevant information on table
-
-// Display location input on Google Maps
-
-// Allow users to save "favorited" results, which adds them to personal table
-
+/* left to do:
+- Display location input on Google Maps
+- Fix API authentication trouble (needs own server)
+- Touch up some design elements (first table, favorites)
+- User authentication (with logout)
+*/
 });
