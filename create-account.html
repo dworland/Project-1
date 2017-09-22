@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+
+<script src="http://momentjs.com/downloads/moment.js" type="text/javascript"></script>
+
+</head>
+
+<body> 
+
+<div class="app">
+
+    <nav class="navigation">
+
+        <div class="nav-wrapper">
+
+            <a href="#" class="brand-logo">KYW.</a>
+
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+        
+                <li><a href="sign-in.html">Sign In</a></li>
+                <li><a href="favorites.html" target="_blank">Favorites</a></li>
+                <li><a href="">Logout</a></li>
+
+            </ul>
+
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="">Create Account</a></li>
+                <li><a href="">Sign In</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="">Logout</a></li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+    <div class="row">
+
+        <form class="create-account col m6 offset-m3 s12">
+
+            <div class="row">
+
+                <div class="input-field col s6">
+
+                    <input id="first_name" type="text" class="validate">
+
+                    <label for="first_name">First Name</label>
+
+                </div>
+
+                <div class="input-field col s6">
+
+                    <input id="last_name" type="text" class="validate">
+
+                    <label for="last_name">Last Name</label>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-field col s12">
+
+                    <input id="password" type="password" class="validate">
+
+                    <label for="password">Password</label>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-field col s12">
+
+                    <input id="email" type="email" class="validate">
+
+                    <label for="email">Email</label>
+
+                 </div>
+
+            </div>
+
+            <div class="get-started">
+
+            <a class="waves-effect waves-light btn" id="scroll">Create Account</a> <!-- Consider inserting icon into button -->
+
+            </div>
+
+        </form>
+
+    </div>
+
+    </div>
+
+    <div class="footer">
+
+        <div class="footer-text">© 2017 Copyright Cody Baird, Devon Worland, Judson Fisher</div>
+
+        <div class="glassdoor">
+
+            <a class="glassdoor" href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</body>
+</html>
