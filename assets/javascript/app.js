@@ -45,12 +45,18 @@ $("#searchBtn").on("click", function() {
 	jobSelection = $("#jobSelection").val();
 	var location = "";
 	location = $("#location").val();
+	var split = location.split(" ");
+	console.log(split);
+	console.log(split[0]);
+	console.log(split[1]);
 
 	var userIP = "";
 	var userAgent = "";
 	
 	var queryURL1 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-prog&countryId=1&jobTitle=" + jobSelection; 
 	var queryURL2 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + location + "&jt=" + jobSelection + "&returnCities=true"; 
+	var queryURL3 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + split[0] + "%20" + split[1] + "&key=AIzaSyDsmzweBLk2kCCq3FeNX9VIqCdjhMVutrw";
+
 
 	var rowId = location + Date.now();
 	var btnId = 'btn' + rowId;
@@ -72,10 +78,31 @@ $("#searchBtn").on("click", function() {
     })
 	.done(function(response) {
 		var results = response.data;
+		console.log(response);
 		var jobs = response.response.attributionURL;
 		var opps = response.response.cities[0].numJobs;
 		$('.td2', "#" + rowId).html('<a target="_blank" href=' + jobs + '>' + opps + '</a>');
 	});
+
+	$.ajax({
+      url: queryURL3,
+      method: "GET"
+    })
+    .done(function(response) {
+    	var results = response.data;
+    	console.log(response);
+    	var coordinates = results[0].geometry.location;
+    	console.log(coordinates);
+    	var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: coordinates
+        });
+        var marker = new google.maps.Marker({
+          position: coordinates,
+          map: map
+        });
+
+    });
 
 	// Will need to append to firebase // Favorites table will need to reflect firebase results snapshot
 	$('#btn' + rowId).on("click", function() {
