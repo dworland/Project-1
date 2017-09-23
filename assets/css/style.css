@@ -225,3 +225,10 @@ body {
 	td:nth-of-type(5):before { content: "Favorite"; }
 }
 
+@media (max-width: 736px) {
+
+	.table {
+		width: 100%;
+	}
+
+}
