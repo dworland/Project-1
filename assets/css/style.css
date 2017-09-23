@@ -192,7 +192,7 @@ body {
 		display: block;
 	}
 
-	thead tr { 
+	thead tr th { 
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
