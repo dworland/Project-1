@@ -195,9 +195,13 @@ body {
 	
 }
 
-@media (max-width: 414px) {
-	.carousel-img {
-		height: 100px !important;
+@media (max-width: 736px) {
+	.carousel-slider {
+	height: 100px !important;
+	}
+
+.carousel-img {
+	height: 100px !important;
 	}
 
 	table, thead, tbody, th, td, tr { 
