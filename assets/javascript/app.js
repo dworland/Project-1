@@ -56,9 +56,9 @@ $("#searchBtn").on("click", function() {
 	var userIP = "";
 	var userAgent = "";
 	
-	var queryURL1 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-prog&countryId=1&jobTitle=" + jobSelection; 
-	var queryURL2 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + locationSplit[0] + "%20" + locationSplit[1] + "&jt=" + jobSelection + "&returnCities=true"; 
-	var queryURL3 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + locationSplit[0] + "%20" + locationSplit[1] + "%20" + locationSplit[2] + "&jt=" + jobSelection + "&returnCities=true";
+	var queryURL1 = "https://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-prog&countryId=1&jobTitle=" + jobSelection; 
+	var queryURL2 = "https://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + locationSplit[0] + "%20" + locationSplit[1] + "&jt=" + jobSelection + "&returnCities=true"; 
+	var queryURL3 = "https://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + locationSplit[0] + "%20" + locationSplit[1] + "%20" + locationSplit[2] + "&jt=" + jobSelection + "&returnCities=true";
 	var queryURL4 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + locationSplit[0] + "%20" + locationSplit[1] + "&key=AIzaSyDsmzweBLk2kCCq3FeNX9VIqCdjhMVutrw";
 
 	var query;
