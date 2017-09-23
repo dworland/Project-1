@@ -187,7 +187,7 @@ body {
 	
 }
 
-@media (min-width: 319px) and (max-width: 415px) {
+@media (max-width: 414px) {
 	table, thead, tbody, th, td, tr { 
 		display: block;
 	}
