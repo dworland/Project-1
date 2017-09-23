@@ -196,6 +196,10 @@ body {
 }
 
 @media (max-width: 414px) {
+	.carousel-img {
+		height: 100px;
+	}
+
 	table, thead, tbody, th, td, tr { 
 		display: block;
 	}
