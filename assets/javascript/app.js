@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+$(".button-collapse").sideNav();
+
 var slideIndex = 0;
 carousel();
 
@@ -45,26 +47,31 @@ $("#searchBtn").on("click", function() {
 	jobSelection = $("#jobSelection").val();
 	var location = "";
 	location = $("#location").val();
-	var split = location.split(" ");
-	console.log(split);
-	console.log(split[0]);
-	console.log(split[1]);
+	var locationSplit = location.split(" ");
+	console.log(locationSplit);
+	console.log(locationSplit[0]);
+	console.log(locationSplit[1]);
+	console.log(locationSplit[2]);
 
 	var userIP = "";
 	var userAgent = "";
 	
 	var queryURL1 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-prog&countryId=1&jobTitle=" + jobSelection; 
-	var queryURL2 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + location + "&jt=" + jobSelection + "&returnCities=true"; 
-	var queryURL3 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + split[0] + "%20" + split[1] + "&key=AIzaSyDsmzweBLk2kCCq3FeNX9VIqCdjhMVutrw";
+	var queryURL2 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + locationSplit[0] + "%20" + locationSplit[1] + "&jt=" + jobSelection + "&returnCities=true"; 
+	var queryURL3 = "http://api.glassdoor.com/api/api.htm?t.p=198273&t.k=cYTMMG3JTuQ&userip=&useragent=&format=json&v=1&action=jobs-stats&l=" + locationSplit[0] + "%20" + locationSplit[1] + "%20" + locationSplit[2] + "&jt=" + jobSelection + "&returnCities=true";
+	var queryURL4 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + locationSplit[0] + "%20" + locationSplit[1] + "&key=AIzaSyDsmzweBLk2kCCq3FeNX9VIqCdjhMVutrw";
 
-
-	var rowId = location + Date.now();
+	var query;
+	var map;
+	var rowId = Date.now();
 	var btnId = 'btn' + rowId;
 	var row = $("#table").append('<tr id=' + rowId + '><td>' + jobSelection + '</td><td>' + location + '</td><td class="td1">' + "Loading..." + '</td><td class="td2">' + "Loading...." + '</td><td>' + '<a class="btn-floating btn-large waves-effect waves-light red" id="' + btnId + '"><i class="material-icons">add</i></a></td></tr>');
 
 	$.ajax({
       url: queryURL1,
-      method: "GET"
+      method: "GET",
+      jsonp: "callback",
+      dataType: "jsonp"
     })
 	.done(function(response) {
 		var results = response.data;
@@ -72,33 +79,56 @@ $("#searchBtn").on("click", function() {
 		$('.td1', "#" + rowId).text(salary);
 	});
 
+
+	if (locationSplit.length === 3) {
+		query = queryURL3;
+		console.log(query);
+
+	}
+	else if (locationSplit.length === 2) {
+		query = queryURL2;
+		console.log(query);
+	}
+
+
 	$.ajax({
-      url: queryURL2,
-      method: "GET"
+
+      url: query,
+      method: "GET",
+      jsonp: "callback",
+      dataType: "jsonp"
     })
 	.done(function(response) {
 		var results = response.data;
 		console.log(response);
 		var jobs = response.response.attributionURL;
+		console.log(jobs);
 		var opps = response.response.cities[0].numJobs;
-		$('.td2', "#" + rowId).html('<a target="_blank" href=' + jobs + '>' + opps + '</a>');
+		console.log(opps);
+		$('.td2', "#" + rowId).html('<a target="_blank" href="' + jobs + '">' + opps + '</a>');
 	});
 
 	$.ajax({
-      url: queryURL3,
-      method: "GET"
+      url: queryURL4,
+      method: "GET",
     })
     .done(function(response) {
-    	var results = response.data;
-    	console.log(response);
-    	var coordinates = results[0].geometry.location;
-    	console.log(coordinates);
-    	var map = new google.maps.Map(document.getElementById("map"), {
+    	var results = response.results;
+    	console.log('response',response);
+    	var coordinates = response.results[0].geometry.location
+    	console.log('coordinates',coordinates);
+    	var latlng = new google.maps.LatLng(coordinates);
+    	var mapOptions =
+    	{
           zoom: 4,
-          center: coordinates
-        });
+          center: latlng,
+          mapTypeId: google.map
+        };
+
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
         var marker = new google.maps.Marker({
-          position: coordinates,
+          position: latlng,
           map: map
         });
 
