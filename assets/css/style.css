@@ -195,14 +195,7 @@ body {
 	
 }
 
-@media (max-width: 736px) {
-	.carousel-slider {
-	height: 100px !important;
-	}
-
-.carousel-img {
-	height: 100px !important;
-	}
+@media (max-width: 414px) {
 
 	table, thead, tbody, th, td, tr { 
 		display: block;
@@ -243,12 +236,12 @@ body {
 
 @media (max-width: 736px) {
 
-	.table {
-		grid-template-columns: repeat(12, 1fr);
+	.carousel-slider {
+	height: 100px !important;
 	}
 
-	.mapdiv {
-		grid-template-columns: repeat(12, 1fr);
+	.carousel-img {
+	height: 100px !important;
 	}
 
 }
