@@ -195,7 +195,7 @@ body {
 	
 }
 
-@media (max-width: 414px) {
+@media (max-width: 320px) {
 
 	.carousel-slider {
 	height: 200px !important;
