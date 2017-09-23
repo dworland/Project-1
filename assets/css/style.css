@@ -199,12 +199,12 @@ body {
 	}
 
 	tr { 
-		border: 1px solid #ccc; 
+		border: 1px solid white; 
 	}
 
 	td {
 		border: none;
-		border-bottom: 1px solid #eee; 
+		border-bottom: 1px solid white; 
 		position: relative;
 		padding-left: 50%;
 	} 
@@ -225,7 +225,11 @@ body {
 	td:nth-of-type(5):before { content: "Favorite"; }
 }
 
-@media (max-width: 736px) {
+/*@media (max-width: 736px) {
+
+	.container {
+
+	}
 
 	.table {
 		width: 100%;
@@ -235,4 +239,4 @@ body {
 		width: 100%;
 	}
 
-}
+}*/
