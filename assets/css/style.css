@@ -1,6 +1,6 @@
 body {
     display: flex;
-    min-height: 100vh;
+    min-height: 100%;
     flex-direction: column;
   }
 
@@ -57,6 +57,11 @@ body {
 
 .carousel-img {
 	height: 625px !important;
+}
+
+.flex-center {
+	display: flex;
+    justify-content: space-around;
 }
 
 .firstrow {
@@ -170,3 +175,14 @@ body {
 .sign-up {
 	text-align: center;
 }
+
+
+.show-on-small {
+	width: 100%;
+}
+
+.show-on-medium {
+	width: 75%;
+	
+}
+
