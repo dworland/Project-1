@@ -52,11 +52,11 @@ body {
 }
 
 .carousel-slider {
-	height: 625px !important;
+	height: 670px !important;
 }
 
 .carousel-img {
-	height: 625px !important;
+	height: 670px !important;
 }
 
 .flex-center {
@@ -237,11 +237,11 @@ body {
 @media (max-width: 736px) {
 
 	.carousel-slider {
-	height: 100px !important;
+	height: 300px !important;
 	}
 
 	.carousel-img {
-	height: 100px !important;
+	height: 300px !important;
 	}
 
 }
