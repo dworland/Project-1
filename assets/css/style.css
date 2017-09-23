@@ -81,6 +81,14 @@ body {
 	padding-right: 40px !important;
 }
 
+.search-icon {
+	padding-right: 5px;
+}
+
+.btn-text {
+	margin-bottom: 10px;
+}
+
 .secondrow {
 	background-color: #00695c;
 	border-radius: 5px;
@@ -225,18 +233,14 @@ body {
 	td:nth-of-type(5):before { content: "Favorite"; }
 }
 
-/*@media (max-width: 736px) {
-
-	.container {
-
-	}
+@media (max-width: 736px) {
 
 	.table {
-		width: 100%;
+		grid-template-columns: repeat(12, 1fr);
 	}
 
 	.mapdiv {
-		width: 100%;
+		grid-template-columns: repeat(12, 1fr);
 	}
 
-}*/
+}
