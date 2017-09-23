@@ -228,7 +228,11 @@ body {
 @media (max-width: 736px) {
 
 	.table {
-		width: 80%;
+		width: 100%;
+	}
+
+	.mapdiv {
+		width: 100%;
 	}
 
 }
