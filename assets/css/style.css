@@ -292,24 +292,30 @@ h3 {
 		margin-left: 0px;
 		margin-top: 4px;
 		margin-bottom: 2px;
-		height: 30px !important;
+		height: 40px !important;
 	}
 
 	.title-section {
-		margin-top: 20px;
+		margin-top: 5px;
 	}
 
 }
 
 @media (max-width: 736px) {
 
+	.carousel {
+		margin-top: 50px;
+		margin-bottom: 50px;
+		padding-right: 60px !important;
+	}
+
 	.carousel-slider {
-	height: 105px !important;
+		height: 140px !important;
 	}
 
 	.carousel-img {
-	height: 105px !important;
-	width: 150px !important;
+		height: 140px !important;
+		width: 200px !important;
 	}
 
 }
