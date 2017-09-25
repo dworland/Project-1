@@ -34,11 +34,13 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 $("#scroll").click(function(event){
-    $('html, body').animate({scrollTop: '+=450px'}, 800);
+    $('html, body').animate({scrollTop: '+=600px'}, 800);
 });
 
 var salary;
 var opps;
+
+// Display USA map on home screen
 
 var usa = "United States";
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + usa + "&key=AIzaSyDsmzweBLk2kCCq3FeNX9VIqCdjhMVutrw";
@@ -180,9 +182,6 @@ database.ref().on("child_added", function(snapshot) {
 });
 
 /* left to do:
-- Display location input on Google Maps
-- Fix API authentication trouble (needs own server)
-- Touch up some design elements (first table, favorites)
 - User authentication (with logout)
 */
 });

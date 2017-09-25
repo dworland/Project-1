@@ -297,7 +297,8 @@ h3 {
 
 	.title-section {
 		margin-top: 0 auto !important;
-		width: 560px !important;
+		display: block !important;
+		width: 600px !important;
 	}
 
 	.remove {
