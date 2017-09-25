@@ -249,12 +249,15 @@ h3 {
 
 @media (max-width: 320px) {
 
-	.carousel-slider {
-	height: 200px !important;
+	.brand-logo {
+		margin-left: 0px;
+		margin-top: 4px;
+		margin-bottom: 2px;
+		height: 30px !important;
 	}
 
-	.carousel-img {
-	height: 200px !important;
+	.title-section {
+		margin-top: 20px;
 	}
 
 	table, thead, tbody, th, td, tr { 
@@ -294,14 +297,15 @@ h3 {
 	td:nth-of-type(5):before { content: "Favorite"; }
 }
 
-/*@media (max-width: 736px) {
+@media (max-width: 736px) {
 
 	.carousel-slider {
-	height: 300px !important;
+	height: 105px !important;
 	}
 
 	.carousel-img {
-	height: 300px !important;
+	height: 105px !important;
+	width: 150px !important;
 	}
 
-}*/
+}
