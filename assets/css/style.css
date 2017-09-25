@@ -300,6 +300,10 @@ h3 {
 		display: block !important;
 	}
 
+	.remove {
+		visibility: hidden;
+	}
+
 	.carousel {
 		display: none !important;
 	}
