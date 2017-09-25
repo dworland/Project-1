@@ -299,7 +299,7 @@ h3 {
 		margin-top: 0 auto !important;
 		display: block !important;
 		width: 600px !important;
-		text-align: center;
+		text-align: center !important;
 	}
 
 	.remove {
