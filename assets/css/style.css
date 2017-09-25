@@ -297,7 +297,7 @@ h3 {
 
 	.title-section {
 		margin-top: 0 auto !important;
-		width: 200% !important;
+		display: block !important;
 	}
 
 	.carousel {
