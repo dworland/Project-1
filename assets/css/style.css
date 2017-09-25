@@ -22,7 +22,7 @@ body {
 	background-color: white;
 }
 
-.brand-logo {
+.logo {
 	margin-left: 40px;
 	margin-top: 4px;
 	height: 50px !important;
@@ -295,11 +295,14 @@ h3 {
 		height: 40px !important;
 	}
 
+	.jumbotron {
+		text-align: center;
+	}
+
 	.title-section {
 		margin-top: 0 auto !important;
 		display: block !important;
 		width: 600px !important;
-		align-content: center;
 	}
 
 	.remove {
