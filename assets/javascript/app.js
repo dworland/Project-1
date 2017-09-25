@@ -40,6 +40,30 @@ $("#scroll").click(function(event){
 var salary;
 var opps;
 
+var usa = "United States";
+var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + usa + "&key=AIzaSyDsmzweBLk2kCCq3FeNX9VIqCdjhMVutrw";
+
+$.ajax({
+      url: queryURL,
+      method: "GET",
+    })
+    .done(function(response) {
+    	var results = response.results;
+    	console.log('response',response);
+    	var coordinates = response.results[0].geometry.location
+    	console.log('coordinates',coordinates);
+    	var latlng = new google.maps.LatLng(coordinates);
+    	var mapOptions =
+    	{
+          zoom: 4,
+          center: latlng,
+          mapTypeId: google.map
+        };
+
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+});
+
 // Create foundational variables (job selection, location)
 
 $("#searchBtn").on("click", function() {

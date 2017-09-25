@@ -286,7 +286,7 @@ h3 {
 	td:nth-of-type(5):before { content: "Favorite"; }
 }
 
-@media (max-width: 736px) {
+@media (min-width: 736px) and (max-width: 736px) {
 
 	.brand-logo {
 		margin-left: 0px;
@@ -298,6 +298,7 @@ h3 {
 	.title-section {
 		margin-top: 0 auto !important;
 		display: block !important;
+		width: 560px;
 	}
 
 	.remove {
