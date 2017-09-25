@@ -295,15 +295,10 @@ h3 {
 		height: 40px !important;
 	}
 
-	.flex-center {
-		display: flex;
-	    justify-content: space-around;
-	}
-
 	.title-section {
 		margin-top: 0 auto !important;
 		display: block !important;
-		width: 400px !important;
+		width: 600px !important;
 	}
 
 	.remove {
@@ -312,6 +307,15 @@ h3 {
 
 	.carousel {
 		display: none !important;
+	}
+
+	.carousel-slider {
+		height: 140px !important;
+	}
+
+	.carousel-img {
+		height: 140px !important;
+		width: 200px !important;
 	}
 
 }
