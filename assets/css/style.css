@@ -295,8 +295,9 @@ h3 {
 		height: 40px !important;
 	}
 
-	.jumbotron {
-		text-align: center;
+	.flex-center {
+		display: flex;
+	    justify-content: space-around;
 	}
 
 	.title-section {
