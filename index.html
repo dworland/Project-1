@@ -21,19 +21,25 @@
 
 <div class="app">
 
+	<div class="border s12 m12"></div>
+
 	<nav class="navigation">
 
 		<div class="nav-wrapper">
 
-			<a href="index.html" class="brand-logo">KYW.</a>
+			<a href="index.html">
+			
+				<img src="assets/images/Logomakr_3pP8Y0.png" class="brand-logo">
+
+			</a>
 
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="index.html">Home</a></li>
-		       	<li><a href="sign-in.html">Sign In</a></li>
-			   	<li><a href="favorites.html" target="_blank">Favorites</a></li>
-			   	<li><a href="">Logout</a></li>
+				<li><a class="navlink" href="index.html">Home</a></li>
+		       	<li><a class="navlink" href="sign-in.html">Sign In</a></li>
+			   	<li><a class="navlink" href="favorites.html" target="_blank">Favorites</a></li>
+			   	<li><a class="navlink" href="">Logout</a></li>
 			</ul>
 
 			<ul class="side-nav" id="mobile-demo">
@@ -47,24 +53,41 @@
 
 	</nav>
 
-	<div class="container m10 offset-1 s12 show-on-small show-on-medium">
+	<div class="row jumbotron">
 
-		<div class="header"><h3>Know Your Worth</h3></div>
+		<div class="title-section col s12 m6">
 
-		<div class="subheader">Quickly find job opportunities and salaries available in your area.</div>
+			<h3>Know Your Worth</h3>
 
-		<div class="get-started">
+			<p class="subheader">Quickly find job opportunities and salaries available in your area.</p>
 
-			<a class="waves-effect waves-light btn" id="scroll">Get Started</a> <!-- Consider inserting icon into button -->
+			<p class="subtext">Start searching now!</p>
+
+				<div class="sign-up">
+
+					<a class="waves-effect waves-light btn1 btn" id="scroll">Get Started</a>
+
+				</div>
 
 		</div>
 
-		<div class="carousel carousel-slider s12 m12 show-on-small flex-center">
+		<div class="col m6 hide-on-small-and-down">
 
-			<img src="assets/images/pexels-photo-577560.jpeg" class="carousel-img show-on-small">
-			<img src="assets/images/pexels-photo-326424.jpeg" class="carousel-img show-on-small">
-			<img src="assets/images/pexels-photo-325111.jpeg" class="carousel-img show-on-small">
-			<img src="assets/images/pexels-photo-38604.jpeg" class="carousel-img show-on-small">
+			<div class="carousel carousel-slider col s12 m12 show-on-small flex-center">
+
+				<img src="assets/images/pexels-photo-326424.jpeg" class="carousel-img show-on-small">
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="container m10 offset-1 s12 show-on-small show-on-medium">
+
+		<div class="intro">
+
+			<p class="searchtext">Start searching!<p>
 
 		</div>
 
@@ -122,13 +145,13 @@
 
 	    <div class="main-results col m12 s12 show-on-small show-on-medium">Results</div>
 
-	    	<div class="mapdiv col s12 m4 show-on-small show-on-medium">
+	    	<div class="mapdiv col s12 m12 show-on-small show-on-medium">
 
 	    		<div id="map" class="map"></div>
 
 	    	</div>
 
-	    	<div class="col s12 m8 show-on-small">
+	    	<div class="col s12 m12 show-on-small">
 
 			    <table class="table show-on-small" id="table">
 
