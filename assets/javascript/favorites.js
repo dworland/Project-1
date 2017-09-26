@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+$(".button-collapse").sideNav();
+
 var config = {
     apiKey: "AIzaSyDhzkzYM0pWB2A-KYGdw-_o046jiV_VTcE",
     authDomain: "project-1-jf.firebaseapp.com",
@@ -16,7 +18,7 @@ var database = firebase.database();
 database.ref().on("child_added", function(snapshot) {
     var sv = snapshot.val();
     var key = snapshot.key;
-    var entry = '<tr><td>' + sv.job + '</td><td>' + sv.location + '</td><td>' + sv.salary + '</td><td>' + sv.opportunities + '</td><td>' + '<a class="btn-floating btn-large waves-effect waves-light red" id="' + key + '"><i class="material-icons">delete</i></a></td></tr';
+    var entry = '<tr><td>' + sv.job + '</td><td>' + sv.location + '</td><td>' + sv.salary + '</td><td><a target="_blank" href="' + sv.listings + '">' + sv.opportunities + '</td><td>' + '<a class="btn-floating btn-large waves-effect waves-light red" id="' + key + '"><i class="material-icons">delete</i></a></td></tr';
     $("#table2").append(entry);
 
     $("a").on("click", function() {

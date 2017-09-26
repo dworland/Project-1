@@ -8,7 +8,6 @@ carousel();
 function carousel() {
     var i;
     var x = $(".carousel-img");
-    // console.log(x);
     for (i = 0; i < x.length; i++) {
       x[i].style.display = "none";
     }
@@ -51,9 +50,7 @@ $.ajax({
     })
     .done(function(response) {
     	var results = response.results;
-    	console.log('response',response);
-    	var coordinates = response.results[0].geometry.location
-    	console.log('coordinates',coordinates);
+    	var coordinates = response.results[0].geometry.location;
     	var latlng = new google.maps.LatLng(coordinates);
     	var mapOptions =
     	{
@@ -74,10 +71,6 @@ $("#searchBtn").on("click", function() {
 	var location = "";
 	location = $("#location").val();
 	var locationSplit = location.split(" ");
-	console.log(locationSplit);
-	console.log(locationSplit[0]);
-	console.log(locationSplit[1]);
-	console.log(locationSplit[2]);
 
 	var userIP = "";
 	var userAgent = "";
@@ -108,12 +101,10 @@ $("#searchBtn").on("click", function() {
 
 	if (locationSplit.length === 3) {
 		query = queryURL3;
-		console.log(query);
 
 	}
 	else if (locationSplit.length === 2) {
 		query = queryURL2;
-		console.log(query);
 	}
 
 
@@ -126,11 +117,8 @@ $("#searchBtn").on("click", function() {
     })
 	.done(function(response) {
 		var results = response.data;
-		console.log(response);
 		var jobs = response.response.attributionURL;
-		console.log(jobs);
 		var opps = response.response.cities[0].numJobs;
-		console.log(opps);
 		$('.td2', "#" + rowId).html('<a target="_blank" href="' + jobs + '">' + opps + '</a>');
 	});
 
@@ -140,9 +128,7 @@ $("#searchBtn").on("click", function() {
     })
     .done(function(response) {
     	var results = response.results;
-    	console.log('response',response);
     	var coordinates = response.results[0].geometry.location
-    	console.log('coordinates',coordinates);
     	var latlng = new google.maps.LatLng(coordinates);
     	var mapOptions =
     	{
@@ -164,12 +150,14 @@ $("#searchBtn").on("click", function() {
 	$('#btn' + rowId).on("click", function() {
 		var salary = $('.td1', "#" + rowId).text();
 		var opps = $('.td2', "#" + rowId).text();
+    var listings = $('a', '.td2').attr('href');
 
 		database.ref().push({
 	        job: jobSelection,
 	        location: location,
 	        salary: salary,
 	        opportunities: opps,
+          listings: listings,
       	});
 
     $(this).removeClass("orange");
