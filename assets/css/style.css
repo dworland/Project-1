@@ -306,7 +306,7 @@ h3 {
 	.brand-logo {
 		margin-left: 0 auto !important;
 		margin-top: 4px;
-		margin-bottom: 2px;
+		margin-bottom: 2px !important;
 		height: 40px !important;
 	}
 
@@ -321,7 +321,7 @@ h3 {
 	}
 
 	.carousel {
-		display: none !important;
+		/*display: none !important;*/
 		visibility: hidden;
 	}
 
