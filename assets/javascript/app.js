@@ -172,16 +172,16 @@ $("#searchBtn").on("click", function() {
 	        opportunities: opps,
       	});
 
+    $(this).removeClass("orange");
+    $(this).addClass("green");
+
 	});
 });	
 
 database.ref().on("child_added", function(snapshot) {
 	var sv = snapshot.val();
-	var entry = '<tr><td>' + sv.job + '</td><td>' + sv.location + '</td><td>' + sv.salary + '</td><td>' + sv.opportunities + '</td><td>' + '<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></td></tr';
-	$("#test").html("tryinnnnnng");
+  var key = snapshot.key;
+  var entry = '<tr><td>' + sv.job + '</td><td>' + sv.location + '</td><td>' + sv.salary + '</td><td>' + sv.opportunities + '</td><td>' + '<a class="btn-floating btn-large waves-effect waves-light red" id="' + key + '"><i class="material-icons">add</i></a></td></tr';
 });
 
-/* left to do:
-- User authentication (with logout)
-*/
 });
