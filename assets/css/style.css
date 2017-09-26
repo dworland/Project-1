@@ -262,7 +262,7 @@ h3 {
 	
 }
 
-@media (max-width: 320px) {
+@media (max-width: 414px) {
 
 	table, thead, tbody, th, td, tr { 
 		display: block;
