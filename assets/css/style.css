@@ -8,15 +8,15 @@ body {
   }
 
 .fav-container {
-	min-height: 550px;
+	min-height: 600px;
 }
 
 .sign-in-container {
-	min-height: 540px;
+	min-height: 600px;
 }
 
 .create-container {
-	min-height: 572px;
+	min-height: 622px;
 }
 
 .app {
